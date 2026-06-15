@@ -1,1 +1,10 @@
-
+---
+- name: Configure Edge Node Software
+  hosts: edge_nodes
+  gather_facts: no
+  tasks:
+    - name: Update apt cache and install Nginx
+      raw: apt-get update && apt-get install -y nginx
+      
+    - name: Start Nginx service
+      raw: service nginx start
